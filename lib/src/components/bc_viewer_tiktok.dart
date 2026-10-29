@@ -2,6 +2,7 @@ library bc_viewer_tiktok;
 
 import 'package:flutter/material.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
 
 /// Fallback embed height, mirroring the web adapter's `height: '600px'`
 /// default. Used when the host provides no bounded height.
@@ -47,6 +48,19 @@ class BcViewerTiktokState extends State<BcViewerTiktok> {
   }
 
   Widget _buildEmbed() {
+    // Web parity: the React adapter renders a real <iframe> pointing at the
+    // TikTok `/embed/v2/{id}` URL. Host a live DOM iframe via HtmlElementView.
+    if (bcWebEmbedSupported) {
+      return BcWebEmbed(
+        key: const Key('bc_viewer_tiktok_embed'),
+        keyPrefix: 'bc_tiktok',
+        url: embedUrl,
+        title: widget.title ?? 'TikTok video',
+        allow: 'encrypted-media; picture-in-picture',
+      );
+    }
+
+    // Non-web: no iframe host exists, so show the informational placeholder.
     return Container(
       key: const Key('bc_viewer_tiktok_embed'),
       width: double.infinity,

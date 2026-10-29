@@ -3,6 +3,7 @@ library bc_viewer_youtube;
 import 'package:flutter/material.dart';
 import '../core/types.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
 
 class BcViewerYoutubeState extends State<BcViewerYoutube> {
   bool? _internalPlaying;
@@ -74,6 +75,20 @@ class BcViewerYoutubeState extends State<BcViewerYoutube> {
   }
 
   Widget _buildEmbed() {
+    // Web parity: the React adapter renders a real <iframe>. Flutter has no
+    // iframe widget, so host a live DOM iframe via HtmlElementView.
+    if (bcWebEmbedSupported) {
+      return BcWebEmbed(
+        key: const Key('bc_viewer_youtube_embed'),
+        keyPrefix: 'bc_youtube',
+        url: embedUrl,
+        title: widget.title ?? 'YouTube video',
+        allow:
+            'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+      );
+    }
+
+    // Non-web: no iframe host exists, so show the informational placeholder.
     return Stack(
       alignment: Alignment.center,
       children: [

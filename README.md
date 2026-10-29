@@ -141,6 +141,44 @@ below their natural width, calendar headers reflow to two rows, builder panes
 keep a minimum canvas width, and field cards ellipsize rather than clip. The
 demo is audited at 1400 / 1024 / 800 / 600 px with zero overflows.
 
+### Media embeds on web
+
+The web adapter renders media through real browser elements: an `<iframe>` for
+YouTube, Instagram, TikTok, PDF, documents, and maps; a `<video>` / `<audio>`
+element for players. Flutter has no widget that hosts those, so this package
+registers real DOM elements with `platformViewRegistry` and displays them via
+`HtmlElementView` — the same technique `BcChart` uses for ECharts.
+
+The seam is `bc_web_embed.dart`, a conditional import:
+
+| File | Platform | Behaviour |
+|---|---|---|
+| `bc_web_embed_web_impl.dart` | web | registers and hosts a live `<iframe>` / `<video>` / `<audio>` |
+| `bc_web_embed_stub.dart` | mobile, desktop | `bcWebEmbedSupported = false`; `dart:ui_web` is never compiled |
+
+Every viewer guards on `bcWebEmbedSupported`. On web it embeds; elsewhere it
+keeps its previous informational placeholder, so the package still builds and
+tests on native targets.
+
+Two details matter when hosting a DOM element through `HtmlElementView`:
+
+- **The element must have an explicit height.** A platform view has no
+  intrinsic size, so a hosted `<audio>` collapses to 0px and drags down any
+  enclosing `Expanded` — which silently truncates the rest of the page. The
+  audio player reserves 54px for this reason.
+- **Each instance needs its own view type.** The registry maps a type to one
+  element factory, so two embeds sharing a type would render the same element
+  twice.
+
+Some embeds depend on the remote service, not on this package:
+
+| Embed | Requirement |
+|---|---|
+| YouTube, PDF, map, video, audio | loads directly |
+| Instagram | requires a logged-in Instagram session; anonymous visitors see Instagram's own login prompt |
+| TikTok | may rate-limit anonymous embeds from datacenter IPs (`overload_protect triggered`) |
+| Document (`office` engine) | Office Online only renders actual Office files, not PDFs |
+
 ## Component inventory
 
 ~120 widgets across layout, display, forms, views, media, and admin builders.
@@ -185,12 +223,16 @@ flutter run -d chrome --web-port=5050
 
 ## Validation status
 
-- **2144 tests passing**, 0 failing.
+- **2165 tests passing**, 0 failing.
 - `flutter analyze`: **0 errors**.
 - Demo: 24 section tests green; overflow audit clean at 1400 / 1024 / 800 / 600 px.
 - Chart parity (ADR-015): 111 tests — 48 golden fixtures, 34 helpers, 29 widget contracts.
 - Renderer scope: 294 tests, including `bc_field_coercion_test.dart` (18),
   `bc_grid_layout_test.dart` (7), and `unbounded_height_test.dart` (13).
+- Media embeds: `media_embed_test.dart` (21) pins the platform seam and the URL
+  construction feeding the web branch. Verified in a browser: PDF, YouTube,
+  map, video, and audio all render live; Instagram and TikTok mount the correct
+  iframe but the remote service gates the content.
 
 ## Repository layout
 

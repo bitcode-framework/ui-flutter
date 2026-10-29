@@ -3,6 +3,7 @@ library bc_viewer_video;
 import 'package:flutter/material.dart';
 import '../core/types.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
 
 class BcViewerVideoState extends State<BcViewerVideo> {
   bool? _internalPlaying;
@@ -157,6 +158,23 @@ class BcViewerVideoState extends State<BcViewerVideo> {
 
   Widget _buildVideoArea() {
     if (_loadFailed) return _buildErrorFallback();
+
+    // Web parity: the React adapter renders a native <video> element with
+    // `controls`. Host a real DOM <video> so playback actually works instead
+    // of showing a static poster with mock controls.
+    if (bcWebEmbedSupported) {
+      return BcWebMediaElement(
+        key: const Key('bc_viewer_video_element'),
+        keyPrefix: 'bc_video',
+        kind: BcWebMediaKind.video,
+        src: widget.src!,
+        poster: widget.poster,
+        controls: widget.controls,
+        autoplay: isPlaying,
+        muted: isMuted,
+        mimeType: widget.type,
+      );
+    }
 
     return Stack(
       alignment: Alignment.center,

@@ -3,6 +3,7 @@ library bc_viewer_document;
 import 'package:flutter/material.dart';
 import '../core/types.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
 
 enum BcViewerDocumentEngine {
   office,
@@ -169,6 +170,19 @@ class BcViewerDocumentState extends State<BcViewerDocument> {
   }
 
   Widget _buildDocumentView() {
+    // Web parity: the React adapter renders the engine URL in a real <iframe>
+    // (Office Online / Google Docs viewer / the raw src for `native`). Host a
+    // live DOM iframe via HtmlElementView so documents actually load.
+    if (bcWebEmbedSupported) {
+      return BcWebEmbed(
+        key: const Key('bc_viewer_document_content'),
+        keyPrefix: 'bc_doc',
+        url: viewerUrl,
+        title: widget.title ?? 'Document',
+      );
+    }
+
+    // Non-web: no iframe host exists, so show the informational placeholder.
     return Container(
       key: const Key('bc_viewer_document_content'),
       width: double.infinity,

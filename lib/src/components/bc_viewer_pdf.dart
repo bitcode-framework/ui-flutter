@@ -3,6 +3,7 @@ library bc_viewer_pdf;
 import 'package:flutter/material.dart';
 import '../core/types.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
 
 class BcViewerPdfState extends State<BcViewerPdf> {
   int? _internalPage;
@@ -198,8 +199,30 @@ class BcViewerPdfState extends State<BcViewerPdf> {
   }
 
   Widget _buildContent(int page, double zoom) {
+    // Web parity: the React adapter renders `src` in a real <iframe>, appending
+    // `#toolbar=0` when its own toolbar is disabled. Host a live DOM iframe via
+    // HtmlElementView so the PDF actually renders instead of a placeholder.
+    if (bcWebEmbedSupported) {
+      final src = widget.src ?? '';
+      final url = widget.toolbar ? src : '$src#toolbar=0';
+      if (src.isEmpty) {
+        return _buildEmptyState(page);
+      }
+      return BcWebEmbed(
+        key: Key('bc_viewer_pdf_page_${page}_zoom_${zoom.toStringAsFixed(2)}'),
+        keyPrefix: 'bc_pdf',
+        url: url,
+        title: widget.title,
+      );
+    }
+
+    return _buildEmptyState(page, zoom: zoom);
+  }
+
+  Widget _buildEmptyState(int page, {double? zoom}) {
+    final z = zoom ?? currentZoom;
     return Container(
-      key: Key('bc_viewer_pdf_page_${page}_zoom_${zoom.toStringAsFixed(2)}'),
+      key: Key('bc_viewer_pdf_page_${page}_zoom_${z.toStringAsFixed(2)}'),
       color: BcTheme.background,
       child: Center(
         child: InteractiveViewer(

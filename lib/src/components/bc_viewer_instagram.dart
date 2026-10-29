@@ -2,6 +2,7 @@ library bc_viewer_instagram;
 
 import 'package:flutter/material.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
 
 /// Fallback embed height, mirroring the web adapter's `height: '600px'`
 /// default. Used when the host provides no bounded height.
@@ -45,6 +46,18 @@ class BcViewerInstagramState extends State<BcViewerInstagram> {
   }
 
   Widget _buildEmbed() {
+    // Web parity: the React adapter renders a real <iframe> pointing at the
+    // post's `/embed` URL. Host a live DOM iframe via HtmlElementView on web.
+    if (bcWebEmbedSupported) {
+      return BcWebEmbed(
+        key: const Key('bc_viewer_instagram_embed'),
+        keyPrefix: 'bc_instagram',
+        url: embedUrl,
+        title: widget.title ?? 'Instagram embed',
+      );
+    }
+
+    // Non-web: no iframe host exists, so show the informational placeholder.
     return Container(
       key: const Key('bc_viewer_instagram_embed'),
       width: double.infinity,

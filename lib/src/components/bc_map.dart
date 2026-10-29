@@ -5,6 +5,15 @@ import 'package:flutter/material.dart';
 import '../core/bc_i18n.dart';
 import '../core/types.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
+
+/// Provider URL template used by the web adapter when none is supplied.
+/// `{lat}`, `{lng}` and `{zoom}` are substituted; the ±0.05 variants bound the
+/// viewport around the marker.
+const String bcMapDefaultEmbedUrl =
+    'https://www.openstreetmap.org/export/embed.html'
+    '?bbox={lng-0.05}%2C{lat-0.05}%2C{lng+0.05}%2C{lat+0.05}'
+    '&layer=mapnik&marker={lat}%2C{lng}';
 
 /// Reason a marker was activated.
 enum BcMapMarkerClickReason { markerClick, programmatic }
@@ -35,6 +44,10 @@ class BcMap extends StatelessWidget {
   final Widget Function(BuildContext context)? mapBuilder;
   final void Function(BcMapMarker marker, BcChangeMeta meta)? onMarkerClick;
 
+  /// Provider URL template, mirroring the web adapter's `embedUrl` prop.
+  /// Defaults to [bcMapDefaultEmbedUrl] (OpenStreetMap). Ignored on non-web.
+  final String embedUrl;
+
   const BcMap({
     super.key,
     this.center,
@@ -43,7 +56,23 @@ class BcMap extends StatelessWidget {
     this.height = 400,
     this.mapBuilder,
     this.onMarkerClick,
+    this.embedUrl = bcMapDefaultEmbedUrl,
   });
+
+  /// Resolves [embedUrl] against the current center/zoom, mirroring the web
+  /// adapter's template substitution.
+  String get resolvedEmbedUrl {
+    final lat = center?.lat ?? 0;
+    final lng = center?.lng ?? 0;
+    return embedUrl
+        .replaceAll('{lat-0.05}', (lat - 0.05).toString())
+        .replaceAll('{lat+0.05}', (lat + 0.05).toString())
+        .replaceAll('{lng-0.05}', (lng - 0.05).toString())
+        .replaceAll('{lng+0.05}', (lng + 0.05).toString())
+        .replaceAll('{lat}', lat.toString())
+        .replaceAll('{lng}', lng.toString())
+        .replaceAll('{zoom}', zoom.toStringAsFixed(0));
+  }
 
   void _handleMarkerTap(BcMapMarker m) {
     onMarkerClick?.call(
@@ -66,50 +95,64 @@ class BcMap extends StatelessWidget {
         height: height,
         child: mapBuilder != null
             ? mapBuilder!(context)
-            : Container(
-                key: const Key('bc-map-placeholder'),
-                color: BcTheme.muted,
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Map (provide mapBuilder)',
-                      key: Key('bc-map-title'),
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: BcTheme.foreground,
-                      ),
+            : (bcWebEmbedSupported
+                // Web parity: the React adapter renders the provider embed in a
+                // real <iframe>. Host it via HtmlElementView so the map loads.
+                ? BcWebEmbed(
+                    key: const Key('bc-map-embed'),
+                    keyPrefix: 'bc_map',
+                    url: resolvedEmbedUrl,
+                    title: bcI18n.t('bc.map.ariaLabel'),
+                    sandbox: 'allow-scripts allow-same-origin',
+                  )
+                : Container(
+                    key: const Key('bc-map-placeholder'),
+                    color: BcTheme.muted,
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Map (provide mapBuilder)',
+                          key: Key('bc-map-title'),
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: BcTheme.foreground,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          key: const Key('bc-map-meta'),
+                          'center: ${center != null ? '${center!.lat.toStringAsFixed(4)}, ${center!.lng.toStringAsFixed(4)}' : '0.0000, 0.0000'} · zoom ${zoom.round()}',
+                          style: const TextStyle(
+                              fontSize: 12, color: BcTheme.mutedForeground),
+                        ),
+                        const SizedBox(height: 8),
+                        Expanded(
+                          child: ListView(
+                            key: const Key('bc-map-markers'),
+                            children: markers
+                                .map((m) => GestureDetector(
+                                      key: Key('bc-map-marker-${m.id}'),
+                                      onTap: () => _handleMarkerTap(m),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 2),
+                                        child: Text(
+                                          '• ${m.label ?? m.id} (${m.lat.toStringAsFixed(4)}, ${m.lng.toStringAsFixed(4)})',
+                                          style: const TextStyle(
+                                              fontSize: 12,
+                                              color: BcTheme.mutedForeground),
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      key: const Key('bc-map-meta'),
-                      'center: ${center != null ? '${center!.lat.toStringAsFixed(4)}, ${center!.lng.toStringAsFixed(4)}' : '0.0000, 0.0000'} · zoom ${zoom.round()}',
-                      style: const TextStyle(fontSize: 12, color: BcTheme.mutedForeground),
-                    ),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView(
-                        key: const Key('bc-map-markers'),
-                        children: markers
-                            .map((m) => GestureDetector(
-                                  key: Key('bc-map-marker-${m.id}'),
-                                  onTap: () => _handleMarkerTap(m),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 2),
-                                    child: Text(
-                                      '• ${m.label ?? m.id} (${m.lat.toStringAsFixed(4)}, ${m.lng.toStringAsFixed(4)})',
-                                      style: const TextStyle(fontSize: 12, color: BcTheme.mutedForeground),
-                                    ),
-                                  ),
-                                ))
-                            .toList(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  )),
       ),
     );
   }

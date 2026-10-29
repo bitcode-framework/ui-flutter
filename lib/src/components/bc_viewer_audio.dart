@@ -5,6 +5,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../core/types.dart';
 import '../theme/bc_theme.dart';
+import 'bc_web_embed.dart';
+
+/// Height reserved for the hosted `<audio>` element on web.
+///
+/// A DOM host mounted via HtmlElementView has no intrinsic height, so without
+/// this the player collapses to 0px and swallows the surrounding layout.
+const double _webPlayerHeight = 54;
 
 class BcViewerAudioState extends State<BcViewerAudio> {
   bool? _internalPlaying;
@@ -208,6 +215,29 @@ class BcViewerAudioState extends State<BcViewerAudio> {
 
   @override
   Widget build(BuildContext context) {
+    // Web parity: the React adapter renders a native <audio> element with
+    // `controls`. Host a real DOM <audio> so playback actually works instead of
+    // a mock waveform with no sound.
+    //
+    // The host element needs an explicit height: the web adapter's `<audio>` is
+    // an inline element with intrinsic height, but a DOM host mounted through
+    // HtmlElementView has none, and a zero-height box makes any enclosing
+    // `Expanded`/`Flexible` collapse the rest of the section.
+    if (bcWebEmbedSupported && !_loadFailed) {
+      return SizedBox(
+        height: _webPlayerHeight,
+        child: BcWebMediaElement(
+          key: const Key('bc_viewer_audio_element'),
+          keyPrefix: 'bc_audio',
+          kind: BcWebMediaKind.audio,
+          src: widget.src!,
+          controls: widget.controls,
+          autoplay: isPlaying,
+          mimeType: widget.type,
+        ),
+      );
+    }
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(BcTheme.radius),
       child: Container(
