@@ -1,0 +1,28 @@
+name: bc_ui_flutter_example
+description: Demo app showcasing @bitcode/ui Flutter adapter components.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: ^3.12.0
+  flutter: '>=3.27.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_platform_widgets: ^7.0.0
+  cupertino_icons: ^1.0.8
+  # Path dependency to the parent library.
+  bc_ui_flutter:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  # WebView platform interface — stubbed by test/helpers/fake_webview_platform.dart
+  # so flutter_echarts (BcChart) can build in widget tests without a real WebView.
+  webview_flutter_platform_interface: ^2.15.0
+
+flutter:
+  uses-material-design: true

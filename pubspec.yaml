@@ -1,0 +1,39 @@
+name: bc_ui_flutter
+description: BitCode UI Flutter adapter — contract-driven Dart widgets from @bitcode/ui
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.12.0
+  flutter: '>=3.27.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  flutter_platform_widgets: ^7.0.0
+  cupertino_icons: ^1.0.8
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
+  http: ^1.2.0
+  # package:web — DOM/JS interop for BcChart web renderer (HtmlElementView + ECharts CDN).
+  # Only imported on web via conditional import; safe on mobile/desktop.
+  web: ^1.1.1
+  # Apache ECharts in a Flutter WebView (ADR-015 — 26/26 chart type parity).
+  flutter_echarts: ^2.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # FakeAsync for deterministic timer tests in hooks parity (ADR-013 Phase 5b).
+  fake_async: ^1.3.1
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.0
+  freezed: ^2.4.0
+  json_serializable: ^6.7.0
+  # DeepCollectionEquality for golden-fixture JSON comparison (chart parity).
+  collection: ^1.18.0
+  # WebView platform interface — stubbed by test/helpers/fake_webview_platform.dart
+  # so flutter_echarts can build in widget tests without a real WebView.
+  webview_flutter_platform_interface: ^2.15.0

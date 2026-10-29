@@ -1,0 +1,1836 @@
+{
+  "bar_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "bar_horizontal": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "value"
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "bar_stacked": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "name": "S1",
+        "data": [
+          10,
+          20,
+          30
+        ],
+        "stack": "total"
+      },
+      {
+        "type": "bar",
+        "name": "S2",
+        "data": [
+          15,
+          25,
+          35
+        ],
+        "stack": "total"
+      }
+    ]
+  },
+  "bar_multiseries": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "name": "S1",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      },
+      {
+        "type": "bar",
+        "name": "S2",
+        "data": [
+          15,
+          25,
+          35
+        ]
+      }
+    ]
+  },
+  "line_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "line",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "line_multiseries": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "line",
+        "name": "S1",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      },
+      {
+        "type": "line",
+        "name": "S2",
+        "data": [
+          15,
+          25,
+          35
+        ]
+      }
+    ]
+  },
+  "area_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "line",
+        "data": [
+          10,
+          20,
+          30
+        ],
+        "areaStyle": {}
+      }
+    ]
+  },
+  "scatter_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "scatter",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "pie_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "pie",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "funnel_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "funnel",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "gauge_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "gauge",
+        "data": [
+          {
+            "name": "Chart",
+            "value": 10
+          }
+        ]
+      }
+    ]
+  },
+  "progress_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "gauge",
+        "data": [
+          {
+            "name": "Chart",
+            "value": 10
+          }
+        ]
+      }
+    ]
+  },
+  "scorecard_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "graphic": [
+      {
+        "type": "text",
+        "left": "center",
+        "top": "middle",
+        "style": {
+          "text": "10",
+          "fill": "currentColor",
+          "fontSize": 32,
+          "fontWeight": 600
+        }
+      }
+    ],
+    "series": []
+  },
+  "kpi_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "graphic": [
+      {
+        "type": "text",
+        "left": "center",
+        "top": "middle",
+        "style": {
+          "text": "10",
+          "fill": "currentColor",
+          "fontSize": 32,
+          "fontWeight": 600
+        }
+      }
+    ],
+    "series": []
+  },
+  "radar_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "radar": {
+      "indicator": [
+        {
+          "name": "A",
+          "max": 100
+        },
+        {
+          "name": "B",
+          "max": 100
+        },
+        {
+          "name": "C",
+          "max": 100
+        }
+      ]
+    },
+    "series": [
+      {
+        "type": "radar",
+        "data": [
+          {
+            "value": [
+              10,
+              20,
+              30
+            ],
+            "name": "Chart"
+          }
+        ]
+      }
+    ]
+  },
+  "heatmap_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "xAxis": {
+      "type": "category"
+    },
+    "yAxis": {
+      "type": "category"
+    },
+    "visualMap": {
+      "min": 0,
+      "max": 100,
+      "calculable": true
+    },
+    "series": [
+      {
+        "type": "heatmap",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "candlestick_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category"
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "candlestick",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "boxplot_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category"
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "boxplot",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "graph_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "graph",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "sankey_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "sankey",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "treemap_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "treemap",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "tree_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "tree",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "sunburst_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "sunburst",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "polar_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "angleAxis": {},
+    "radiusAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "polar": {},
+    "series": [
+      {
+        "type": "bar",
+        "coordinateSystem": "polar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "parallel_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "parallelAxis": [],
+    "parallel": {},
+    "series": [
+      {
+        "type": "parallel",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "pictorialbar_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "pictorialBar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "themeriver_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "singleAxis": {
+      "type": "time"
+    },
+    "series": [
+      {
+        "type": "themeRiver",
+        "data": [
+          {
+            "name": "A",
+            "value": 10
+          },
+          {
+            "name": "B",
+            "value": 20
+          },
+          {
+            "name": "C",
+            "value": 30
+          }
+        ]
+      }
+    ]
+  },
+  "mixed_multiseries": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "name": "S1",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      },
+      {
+        "type": "line",
+        "name": "S2",
+        "data": [
+          15,
+          25,
+          35
+        ]
+      }
+    ]
+  },
+  "pivot_basic": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "custom_passthrough": {
+    "series": [
+      {
+        "type": "line",
+        "data": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "parsed_string_data": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "item",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "series": [
+      {
+        "type": "pie",
+        "data": [
+          {
+            "name": "X",
+            "value": 30
+          },
+          {
+            "name": "Y",
+            "value": 70
+          }
+        ]
+      }
+    ]
+  },
+  "bar_with_datazoom": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "toolbox": {
+      "feature": {
+        "saveAsImage": {},
+        "restore": {},
+        "dataView": {
+          "readOnly": true
+        }
+      }
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 68,
+      "containLabel": true
+    },
+    "dataZoom": [
+      {
+        "type": "inside"
+      },
+      {
+        "type": "slider",
+        "height": 16
+      }
+    ],
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "bar_no_legend": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 12,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "bar_no_tooltip": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "bar_custom_colors": {
+    "title": {
+      "text": "Chart",
+      "left": "left",
+      "textStyle": {
+        "fontSize": 14
+      }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  "bar_no_title": {
+    "tooltip": {
+      "trigger": "axis",
+      "confine": true
+    },
+    "legend": {
+      "type": "scroll",
+      "bottom": 0
+    },
+    "animation": true,
+    "color": [
+      "hsl(var(--bc-primary))",
+      "hsl(var(--bc-success))",
+      "hsl(var(--bc-warning))",
+      "hsl(var(--bc-info))",
+      "hsl(var(--bc-destructive))",
+      "hsl(var(--bc-secondary))",
+      "hsl(var(--bc-accent))"
+    ],
+    "grid": {
+      "left": 32,
+      "right": 24,
+      "top": 32,
+      "bottom": 36,
+      "containLabel": true
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          10,
+          20,
+          30
+        ]
+      }
+    ]
+  }
+}
