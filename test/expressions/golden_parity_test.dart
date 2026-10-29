@@ -18,17 +18,28 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bc_ui_flutter/bc_ui_flutter.dart';
 
-/// Resolve the ui-schema fixture directory. In Flutter test, relative paths
-/// resolve from the package root (packages/ui-flutter/). We traverse up to
-/// find the sibling ui-schema package.
+/// Resolve the golden fixture directory.
+///
+/// The fixtures are vendored at `test/fixtures/expressions/` so this suite is
+/// self-contained: it runs standalone, in CI, and in the monorepo without
+/// depending on a sibling checkout. They are byte-identical copies of
+/// `packages/ui-schema/test/fixtures/expressions/`, which keeps the TS and Dart
+/// sides validating the same wire shape. When the TS fixtures change, copy them
+/// across (`copy ..\ui-schema\test\fixtures\expressions\*.json
+/// test\fixtures\expressions\`).
 Directory _fixtureDir() {
-  final scriptDir = Directory.current;
-  // Try: packages/ui-flutter -> ../ui-schema/test/fixtures/expressions
-  final candidate = Directory(
-      '${scriptDir.parent.path}/ui-schema/test/fixtures/expressions');
-  if (candidate.existsSync()) return candidate;
-  // Fallback: absolute path
-  return Directory('D:/NodeJS/lowcode/packages/ui-schema/test/fixtures/expressions');
+  // Flutter test runs with the package root as the working directory.
+  final local = Directory('test/fixtures/expressions');
+  if (local.existsSync()) return local;
+
+  // Fallback for runners that start elsewhere (e.g. from test/expressions).
+  final nested = Directory('fixtures/expressions');
+  if (nested.existsSync()) return nested;
+
+  throw StateError(
+    'Golden fixtures not found. Expected test/fixtures/expressions/ relative '
+    'to ${Directory.current.path}.',
+  );
 }
 
 /// Load all fixture files.
