@@ -22,7 +22,10 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.x'
+          # Pinned to the version this package is developed and verified
+          # against. The pubspec requires Dart ^3.12.0, which older stable
+          # releases (e.g. 3.35.x ships Dart 3.9.2) cannot satisfy.
+          flutter-version: '3.44.1'
           channel: stable
           cache: true
 
